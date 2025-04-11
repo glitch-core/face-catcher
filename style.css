@@ -5,6 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    transition: background-color 1s ease;
   }
 
   #gameBox {
@@ -39,16 +40,25 @@ body {
   #bar {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    transition: background-color 1s ease;
   }
 
   #player-1 {
     width: 150px;
     align-items: center;
     vertical-align: middle;
+    cursor: pointer;
   }
 
   #player-2 {
     width: 150px;
     align-items: center;
     vertical-align: middle;
+    cursor: pointer;
   }
+
+  #main-container {
+    background-color: white; /* <- this was missing */
+    transition: background-color 1s ease;
+  }
+  
