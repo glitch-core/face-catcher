@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Click the Face Game</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+    }
+
+    #gameBox {
+      width: 500px;
+      height: 300px;
+      border: 3px solid #333;
+      position: relative;
+      background-color: white;
+      overflow: hidden;
+    }
+
+    #target {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      cursor: pointer;
+      transition: top 0.1s, left 0.1s;
+    }
+  </style>
+</head>
+<body>
+
+<div id="gameBox">
+  <img id="target" src="https://i.imgur.com/4AiXzf8.jpg" alt="face">
+</div>
+
+<script>
+  const gameBox = document.getElementById('gameBox');
+  const target = document.getElementById('target');
+
+  function moveTarget() {
+    const boxWidth = gameBox.clientWidth;
+    const boxHeight = gameBox.clientHeight;
+    const targetSize = target.clientWidth;
+
+    const maxLeft = boxWidth - targetSize;
+    const maxTop = boxHeight - targetSize;
+
+    const newLeft = Math.floor(Math.random() * maxLeft);
+    const newTop = Math.floor(Math.random() * maxTop);
+
+    target.style.left = `${newLeft}px`;
+    target.style.top = `${newTop}px`;
+  }
+
+  target.addEventListener('click', moveTarget);
+
+  // Initial spawn
+  moveTarget();
+</script>
+
+</body>
+</html>
