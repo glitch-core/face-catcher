@@ -43,36 +43,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const dark = document.getElementById('dark');
     function darkTheme() {
-        if ((lighDark % 2) != 0) {
-            const mainContainer = document.getElementById('main-container');
-            mainContainer.style = "background-color: white;";
-            gameBox.style = `
-        border: 3px solid #333;
-        position: relative;
-        background-color: white;
-        overflow: hidden;
-        `;
-            counter.style.color = "black"
-
-            dark.innerText = "Dark";
-            lighDark += 1;
-
-            return;
-        }
-
         const mainContainer = document.getElementById('main-container');
-        mainContainer.style = "background-color: #333";
-        gameBox.style = `
-        border: 3px solid #333;
-        position: relative;
-        background-color: #111;
-        overflow: hidden;
-        `;
-        counter.style.color = "white"
-
-        dark.innerText = "Light";
+        const gameBox = document.getElementById('gameBox');
+    
+        if ((lighDark % 2) != 0) {
+            mainContainer.style.backgroundColor = "white";
+            gameBox.style.backgroundColor = "white";
+            counter.style.color = "black";
+    
+            dark.innerText = "Dark";
+        } else {
+            mainContainer.style.backgroundColor = "#333";
+            gameBox.style.backgroundColor = "#111";
+            counter.style.color = "white";
+    
+            dark.innerText = "Light";
+        }
+    
         lighDark += 1;
     }
+    
+    
     var player1 = document.getElementById('player-1');
     var player2 = document.getElementById('player-2');
 
@@ -80,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         target.src = "face.png";
     }
 
-    
+
     function changePlayer2() {
         target.src = "face-2.png";
     }
